@@ -42,7 +42,7 @@ fn main() -> Result<(), String> {
         {
             run_with_output(day, part)?;
         }
-        _ => println!("usage: <day:u32> [part:1|2]"),
+        _ => println!("usage: <day:NonZeroU32> [part:1|2]"),
     };
 
     Ok(())

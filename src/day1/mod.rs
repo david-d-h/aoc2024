@@ -3,7 +3,7 @@ use std::str::Lines;
 pub mod part1;
 pub mod part2;
 
-pub const SOURCE: &str = core::include_str!("../../res/day1.txt");
+pub const INPUT: &str = core::include_str!("../../res/day1.txt");
 
 #[inline]
 fn parse(source: &str) -> u32 {
@@ -19,9 +19,6 @@ pub fn process_raw_input(source: Lines<'_>, length: usize) -> (Vec<u32>, Vec<u32
             .and_then(|_| container2.push_within_capacity(parse(&line[8..=12])))
             .expect("count of lines in source should not exceed the specified amount");
     });
-
-    container1.sort();
-    container2.sort();
 
     (container1, container2)
 }
