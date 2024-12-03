@@ -1,12 +1,23 @@
-#![feature(vec_push_within_capacity, if_let_guard, let_chains, test)]
-
+#![feature(
+    vec_push_within_capacity,
+    if_let_guard,
+    let_chains,
+    test,
+    assert_matches
+)]
 use std::{env, num::NonZeroUsize};
 
 pub mod day1;
+pub mod day2;
+pub mod day3;
 
 type Solution = fn() -> String;
 
-const PARTS: &[(Solution, Option<Solution>)] = &[(day1::part1::run, Some(day1::part2::run))];
+const PARTS: &[(Solution, Option<Solution>)] = &[
+    (day1::part1::run, Some(day1::part2::run)),
+    (day2::part1::run, None),
+    (day3::part1::run, Some(day3::part2::run)),
+];
 
 fn run(day: NonZeroUsize, part: NonZeroUsize) -> Result<String, String> {
     let solutions = PARTS.get(day.get() - 1).ok_or(format!(
